@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <img src="favicon.ico"/>
+    <script src="angular.min.js"></script>
+    <script src="base.js"></script>
+    <script src="userController.js"></script>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" ng-app="shiro"
+      ng-controller="userController" ng-init="getUserPermissionTree()">
+<h1>欢迎来到首页</h1>
+
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+        </div>
+        <ul class="sidebar-menu"  >
+            <li class="header">菜单</li>
+
+            <li class="treeview"  ng-repeat="permission in permissionList">
+                <a href="#">
+                    <i class="fa fa-folder"></i>
+                    <span>
+                                {{permission.permissionName}}
+                            </span>
+                    <span class="pull-right-container">
+				       			<i class="fa fa-angle-left pull-right"></i>
+				   		 	</span>
+                </a>
+                <ul class="treeview-menu">
+
+                    <li id="admin-login" ng-repeat="child in permission.children">
+                        <a href="{{child.url}}" target="iframe">
+                            <i class="fa fa-circle-o"></i> {{child.permissionName}}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</aside>
+
+
+<div class="logined">
+    <button ng-click="logout()" >退出登陆</button>
+</div>
+</body>
+</html>
