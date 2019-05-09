@@ -15,8 +15,8 @@ springboot+shiro+angularJS
 
 #### 使用说明
 
-1. xxxx
-2. xxxx
+1. 入职百信期间，自己搭建的自学shiro框架，可以正常启动，查看效果。
+2. springboot整合shiro
 3. xxxx
 
 #### 参与贡献
